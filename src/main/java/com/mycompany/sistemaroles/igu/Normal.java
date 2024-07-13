@@ -28,12 +28,12 @@ public class Normal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblTabla = new javax.swing.JTable();
+        tblTablaUsuarios = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tblTabla.setModel(new javax.swing.table.DefaultTableModel(
+        tblTablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -44,7 +44,7 @@ public class Normal extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(tblTabla);
+        jScrollPane1.setViewportView(tblTablaUsuarios);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Usuarios:");
@@ -87,6 +87,6 @@ public class Normal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblTabla;
+    private javax.swing.JTable tblTablaUsuarios;
     // End of variables declaration//GEN-END:variables
 }
