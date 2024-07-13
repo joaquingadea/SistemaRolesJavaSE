@@ -1,13 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.sistemaroles.igu;
-
-/**
- *
- * @author Juan
- */
 public class Login extends javax.swing.JFrame {
 
     /**
@@ -52,6 +43,11 @@ public class Login extends javax.swing.JFrame {
         jfUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         btnRegistrarte.setText("Registrarte");
+        btnRegistrarte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -138,6 +134,13 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistrarteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarteActionPerformed
+        Registrarte reg = new Registrarte();
+        reg.setVisible(true);
+        reg.setLocationRelativeTo(null);
+        
+    }//GEN-LAST:event_btnRegistrarteActionPerformed
 
     /**
      * @param args the command line arguments
