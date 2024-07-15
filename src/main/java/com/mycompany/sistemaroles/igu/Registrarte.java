@@ -4,12 +4,19 @@
  */
 package com.mycompany.sistemaroles.igu;
 
+import com.mycompany.sistemaroles.logica.ControladoraLogica;
+import com.mycompany.sistemaroles.logica.Usuario;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Juan
  */
 public class Registrarte extends javax.swing.JFrame {
-
+    ControladoraLogica control = new ControladoraLogica();
     /**
      * Creates new form Registrarte
      */
@@ -67,6 +74,11 @@ public class Registrarte extends javax.swing.JFrame {
 
         btnRegistrarte.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnRegistrarte.setText("Registrarme");
+        btnRegistrarte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarteActionPerformed(evt);
+            }
+        });
 
         jfUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -244,8 +256,43 @@ public class Registrarte extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jfNombreActionPerformed
 
+    private void btnRegistrarteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarteActionPerformed
+        ArrayList<Usuario> listaUsuarios = new ArrayList(control.traerDatosUs());
+        
+        String usuario = jfUsuario.getText();
+        String contrasenia = jfContrasenia.getText();
+        String confirmContra = jfConfirmContra.getText();
+        String nombre = jfNombre.getText();
+        String apellido = jfApellido.getText();
+        String departamento = jfDpto.getText();
+        String profesion = jfProfesion.getText();
+        
+        
+        if(contrasenia != confirmContra){
+            mensaje("Contraseña incorrecta","error","Error al confirmar la contraseña");
+        }
+        /*else if(contrasenia.equals(confirmContra)&& ){
+            mensaje("Registro guardado","info","Se ha generado su usuario con éxito");
+        }*/
+    }//GEN-LAST:event_btnRegistrarteActionPerformed
 
-
+    public void mensaje(String titulo, String tipoMensj, String mensaje){
+        
+        if(tipoMensj.equals("error")){
+            JOptionPane panel = new JOptionPane(mensaje);
+            panel.setMessageType(JOptionPane.ERROR_MESSAGE);
+            JDialog dialog = panel.createDialog(titulo);
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+        }
+        else if(tipoMensj.equals("info")){
+            JOptionPane info = new JOptionPane(mensaje);
+            info.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = info.createDialog(titulo);
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarte;
     private javax.swing.JButton btnVolverLogin;
