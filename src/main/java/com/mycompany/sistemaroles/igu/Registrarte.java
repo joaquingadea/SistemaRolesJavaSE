@@ -254,27 +254,53 @@ public class Registrarte extends javax.swing.JFrame {
         String informacionUsuario[] = {usuario,contrasenia,confirmContra,nombre,apellido,departamento,profesion};
         
         //Errores posibles
-        
-        
+        boolean errUsIgual = false;
+        boolean errContraIgual = false;
+        boolean errEspVacio = false;
         
         for(Usuario usu : listaUsuarios){
-            if(usu.equals(usuario)){
+            if(usu.getUsuario().equals(usuario)){
                 mensaje("Usuario ya utilizado", "error", "porfavor intente con otro nombre de usuario");
+                errUsIgual = false;
                 break;
             }
+            else{
+                errUsIgual = true;
+            }
         }
-        
         if(!(contrasenia.equals(confirmContra)) ){
             mensaje("Contraseña incorrecta","error","Error al confirmar la contraseña");
+            errContraIgual = false;
+        }
+        else{
+            errContraIgual = true;
         }
         
         for(int i = 0;i<informacionUsuario.length;i++){
             if(informacionUsuario[i].isEmpty()){
                 mensaje("Campo vacío","error","Complete todos los campos de informacion");
+                errEspVacio = false;
                 break;
+            }
+            else{
+                errEspVacio = true;
             }
         }
         
+        if(errEspVacio == true && errUsIgual == true && errContraIgual == true){
+            mensaje("Registro completo","info","Usuario registrado, porfavor vuelva al login");
+            //cargar datos
+            Usuario usuarioFinal = new Usuario();
+            usuarioFinal.setId(0);
+            usuarioFinal.setUsuario(usuario);
+            usuarioFinal.setContrasenia(contrasenia);
+            usuarioFinal.setNombre(nombre);
+            usuarioFinal.setApellido(apellido);
+            usuarioFinal.setDepartamento(departamento);
+            usuarioFinal.setProfesion(profesion);
+            usuarioFinal.setRol("usuario");
+            control.cargarDatosUs(usuarioFinal);
+        }
     }//GEN-LAST:event_btnRegistrarteActionPerformed
 
     public void mensaje(String titulo, String tipoMensj, String mensaje){

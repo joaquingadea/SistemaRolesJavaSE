@@ -6,5 +6,9 @@ public class ControladoraLogica {
     public List<Usuario> traerDatosUs() {
         return control.traerDatosUs();
     }
+
+    public void cargarDatosUs(Usuario usu) {
+        control.cargarDatosUs(usu);
+    }
    
 }

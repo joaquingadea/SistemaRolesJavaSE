@@ -10,4 +10,8 @@ public class ControladoraPersistencia {
         return usuarioJpa.findUsuarioEntities();
         
     }
+
+    public void cargarDatosUs(Usuario usu) {
+        usuarioJpa.create(usu);
+    }
 }
