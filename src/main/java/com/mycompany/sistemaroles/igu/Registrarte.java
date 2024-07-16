@@ -269,15 +269,28 @@ public class Registrarte extends javax.swing.JFrame {
         
         String informacionUsuario[] = {usuario,contrasenia,confirmContra,nombre,apellido,departamento,profesion};
         
-        for(int i = 0;i<informacionUsuario.length;i++){
-            if(informacionUsuario[i].isEmpty()){
-                mensaje("Campo vacío","error","Complete todos los campos de informacion");
+        //Errores posibles
+        
+        
+        
+        for(Usuario usu : listaUsuarios){
+            if(usu.equals(usuario)){
+                mensaje("Usuario ya utilizado", "error", "porfavor intente con otro nombre de usuario");
+                break;
             }
         }
         
         if(!(contrasenia.equals(confirmContra)) ){
             mensaje("Contraseña incorrecta","error","Error al confirmar la contraseña");
         }
+        
+        for(int i = 0;i<informacionUsuario.length;i++){
+            if(informacionUsuario[i].isEmpty()){
+                mensaje("Campo vacío","error","Complete todos los campos de informacion");
+                break;
+            }
+        }
+        
     //mensaje("Registro guardado","info","Se ha generado su usuario con éxito");
     }//GEN-LAST:event_btnRegistrarteActionPerformed
 
