@@ -1,6 +1,4 @@
 package com.mycompany.sistemaroles.persistencia;
-
-import com.mycompany.sistemaroles.logica.Administrador;
 import com.mycompany.sistemaroles.logica.Usuario;
 import java.util.List;
 

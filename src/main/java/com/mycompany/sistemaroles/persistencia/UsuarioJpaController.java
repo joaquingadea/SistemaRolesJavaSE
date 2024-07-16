@@ -1,6 +1,4 @@
-
 package com.mycompany.sistemaroles.persistencia;
-
 import com.mycompany.sistemaroles.logica.Usuario;
 import com.mycompany.sistemaroles.persistencia.exceptions.NonexistentEntityException;
 import java.io.Serializable;

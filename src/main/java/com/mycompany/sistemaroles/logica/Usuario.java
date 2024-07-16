@@ -98,8 +98,5 @@ public class Usuario implements Serializable {
 
     public void setProfesion(String profesion) {
         this.profesion = profesion;
-    }
-    
-    
-    
+    }   
 }

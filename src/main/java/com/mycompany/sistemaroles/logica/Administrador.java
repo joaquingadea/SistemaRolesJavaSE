@@ -1,9 +1,5 @@
 package com.mycompany.sistemaroles.logica;
-
 import java.io.Serializable;
-import javax.persistence.Basic;
-
-
 public class Administrador extends Usuario implements Serializable {
 
     public Administrador() {
