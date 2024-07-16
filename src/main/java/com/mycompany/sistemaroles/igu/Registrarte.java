@@ -289,7 +289,7 @@ public class Registrarte extends javax.swing.JFrame {
         
         if(errEspVacio == true && errUsIgual == true && errContraIgual == true){
             mensaje("Registro completo","info","Usuario registrado, porfavor vuelva al login");
-            //cargar datos
+            //cargar datos en la BD
             Usuario usuarioFinal = new Usuario();
             usuarioFinal.setId(0);
             usuarioFinal.setUsuario(usuario);
@@ -300,6 +300,14 @@ public class Registrarte extends javax.swing.JFrame {
             usuarioFinal.setProfesion(profesion);
             usuarioFinal.setRol("usuario");
             control.cargarDatosUs(usuarioFinal);
+            //limpieza de datos en los JFields
+            jfApellido.setText("");
+            jfConfirmContra.setText("");
+            jfContrasenia.setText("");
+            jfDpto.setText("");
+            jfNombre.setText("");
+            jfProfesion.setText("");
+            jfUsuario.setText("");
         }
     }//GEN-LAST:event_btnRegistrarteActionPerformed
 

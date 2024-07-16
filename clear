@@ -1,0 +1,71 @@
+[33mcommit 09a0d44d62a405ea6bfaaa492e3945535bb8796e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Tue Jul 16 16:18:09 2024 -0300
+
+    cree el alta del registro, por lo que ahora al registrarse se guarda tal registro en la base de datos
+
+[33mcommit fba37b5627b2c3e76dec941e6d8b3abc9fa64ead[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Tue Jul 16 13:25:49 2024 -0300
+
+    acomodé el código eliminando comentarios, imports sin utilizar y demás
+
+[33mcommit de6fb40bc7106d8cbf09e1333c8c59aaf690a6db[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Tue Jul 16 13:06:51 2024 -0300
+
+    retoques al archivo registrarte.java en cuanto a la funcionalidad de los errores que pueda llegar a tener el usuario en el uso cotidiano
+
+[33mcommit f4fece9b47c1beced9b5ccf31c8fb325dececce3[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Mon Jul 15 22:06:40 2024 -0300
+
+    revise muchos errores, agregue la dependencia del driver de mysql al pom.xml, logre hacer el read del crud desde la base de datos, pero todavia no lo terminé, asi que hay que revisarlo todavía[C
+
+[33mcommit b276bbf5cf52a161bbd2ca6390fe3569473a4d43[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Mon Jul 15 19:48:36 2024 -0300
+
+    empecé con la lectura de datos desde la interfaz gráfica en la pagina de registrarte
+
+[33mcommit 75b2e0dde2646936a7295139c5ed9c67d9a04bec[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Sun Jul 14 17:20:02 2024 -0300
+
+    le puse las annotations a las clases y los atributos, termine de crear la parte de la persistencia, controladora, jpa controllers y la unidad de persistencia, ademas conecte el programa a la base de datos
+
+[33mcommit df13886abab0239a3709be3b80be4b0fc26149a5[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Sat Jul 13 19:59:38 2024 -0300
+
+    creacion de los archivos de la logica de la aplicacion. Clases: Administrador, Usuario y ControladoraLogica, con sus respectivos constructores, getters y setters
+
+[33mcommit 9f5b490bdb3e5bd613d0f230af2d3fd76dc3c9f7[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Sat Jul 13 19:46:56 2024 -0300
+
+    modificacion grafica de 'registrarte.java' se añadio nombre, apellido, departamento y profesion como datos del registro de los usuarios
+
+[33mcommit e2618b05f15da35814d216f3591432a38438b2f0[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Sat Jul 13 18:38:34 2024 -0300
+
+    parte grafica ultimos detalles listos
+
+[33mcommit 941b1d10613aa2edb996b3b9912250e707b20e2a[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Sat Jul 13 17:27:09 2024 -0300
+
+    pantalla del resgistrarte visible
+
+[33mcommit be3ddc2de7429d80ad5c45f609539cdbd5842e9e[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Fri Jul 12 00:22:42 2024 -0300
+
+    hice visible la interfaz grafica del login
+
+[33mcommit aec0549d24bdd5a4c07a8f97c405e0615efd125d[m
+Author: Joaquin Adolfo Gadea <joaquingadea@gmail.com>
+Date:   Fri Jul 12 00:16:58 2024 -0300
+
+    interfaz grafica y demas
