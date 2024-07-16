@@ -3,7 +3,6 @@
   <persistence-unit name="sistemaRolesPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.mycompany.sistemaroles.logica.Usuario</class>
-    <class>com.mycompany.sistemaroles.logica.Administrador</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sistema_roles?serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

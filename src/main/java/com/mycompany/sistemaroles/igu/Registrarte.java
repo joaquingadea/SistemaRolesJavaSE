@@ -267,13 +267,18 @@ public class Registrarte extends javax.swing.JFrame {
         String departamento = jfDpto.getText();
         String profesion = jfProfesion.getText();
         
+        String informacionUsuario[] = {usuario,contrasenia,confirmContra,nombre,apellido,departamento,profesion};
         
-        if(contrasenia != confirmContra){
+        for(int i = 0;i<informacionUsuario.length;i++){
+            if(informacionUsuario[i].isEmpty()){
+                mensaje("Campo vacío","error","Complete todos los campos de informacion");
+            }
+        }
+        
+        if(!(contrasenia.equals(confirmContra)) ){
             mensaje("Contraseña incorrecta","error","Error al confirmar la contraseña");
         }
-        /*else if(contrasenia.equals(confirmContra)&& ){
-            mensaje("Registro guardado","info","Se ha generado su usuario con éxito");
-        }*/
+    //mensaje("Registro guardado","info","Se ha generado su usuario con éxito");
     }//GEN-LAST:event_btnRegistrarteActionPerformed
 
     public void mensaje(String titulo, String tipoMensj, String mensaje){

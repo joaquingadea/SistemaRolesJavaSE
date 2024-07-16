@@ -6,5 +6,5 @@ public class ControladoraLogica {
     public List<Usuario> traerDatosUs() {
         return control.traerDatosUs();
     }
-    
+   
 }
