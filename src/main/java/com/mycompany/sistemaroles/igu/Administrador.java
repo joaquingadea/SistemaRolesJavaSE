@@ -1,6 +1,15 @@
 package com.mycompany.sistemaroles.igu;
-public class Administrador extends javax.swing.JFrame {
 
+import com.mycompany.sistemaroles.logica.ControladoraLogica;
+import com.mycompany.sistemaroles.logica.Usuario;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+public class Administrador extends javax.swing.JFrame {
+    ControladoraLogica control = new ControladoraLogica();
     public Administrador() {
         initComponents();
     }
@@ -18,6 +27,11 @@ public class Administrador extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         tblTablaAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,7 +115,51 @@ public class Administrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        DefaultTableModel carTabla = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        List<Usuario> listaUsuarios = null;
+        listaUsuarios = new ArrayList();
+        listaUsuarios = control.traerDatosUs();
+        String titulos[] = {"Id","Usuario","Nombre","Apellido","Profesion","Departamento"};
+        carTabla.setColumnIdentifiers(titulos);
+        if(listaUsuarios != null){
+            for(Usuario us : listaUsuarios){
+                Object usuariosTabla[] = {us.getId(),us.getUsuario(),us.getNombre(),us.getApellido(),us.getProfesion(),us.getDepartamento()}; 
+                if(us.getRol().equals("Administrador")||us.getRol().equals("usuario")){
+                    carTabla.addRow(usuariosTabla);
+                }
+            }
+        }
+        else{
+            mensaje("Tabla vacia","error","La tabla no tiene datos cargados");
+        }
+        tblTablaAdmin.setModel(carTabla);
+    }//GEN-LAST:event_formWindowOpened
 
+    //metodos
+    public void mensaje(String titulo,String tipoMnj,String mensaje){
+        if(tipoMnj.equals("info")){
+            JOptionPane cartel = new JOptionPane();
+            cartel.setMessage(mensaje);
+            cartel.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+            JDialog tit = cartel.createDialog(titulo);
+            tit.setAlwaysOnTop(true);
+            tit.setVisible(true);
+        }
+        else if(tipoMnj.equals("error")){
+            JOptionPane cartel = new JOptionPane();
+            cartel.setMessage(mensaje);
+            cartel.setMessageType(JOptionPane.ERROR_MESSAGE);
+            JDialog tit = cartel.createDialog(titulo);
+            tit.setAlwaysOnTop(true);
+            tit.setVisible(true);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;

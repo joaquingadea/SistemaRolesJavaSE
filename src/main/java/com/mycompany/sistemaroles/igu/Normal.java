@@ -94,7 +94,9 @@ public class Normal extends javax.swing.JFrame {
         if(listaUsuarios != null){
             for(Usuario us : listaUsuarios){
                 Object usuario[] = {us.getId(),us.getNombre(),us.getApellido(),us.getProfesion(),us.getDepartamento()};
-                carTabla.addRow(usuario);
+                if(us.getRol().equals("usuario")){
+                    carTabla.addRow(usuario);
+                }
             }
         }
         else{
