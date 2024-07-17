@@ -1,5 +1,12 @@
 package com.mycompany.sistemaroles.igu;
+import com.mycompany.sistemaroles.logica.ControladoraLogica;
+import com.mycompany.sistemaroles.logica.Usuario;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
+    ControladoraLogica control = new ControladoraLogica(); 
     public Login() {
         initComponents();
     }
@@ -79,6 +86,11 @@ public class Login extends javax.swing.JFrame {
 
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,6 +145,56 @@ public class Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnRegistrarteActionPerformed
 
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        List<Usuario> listaUsuarios =  new ArrayList();
+        listaUsuarios = control.traerDatosUs();
+        String usuario = jfUsuario.getText();
+        String contra = jfContra.getText();
+        String admin = "Administrador";
+        String user = "usuario";
+        boolean error = true;
+        
+        for(int i = 0; i < listaUsuarios.size();i++){
+            if((listaUsuarios.get(i).getUsuario().equals(usuario))  && (listaUsuarios.get(i).getContrasenia().equals(contra))&& (listaUsuarios.get(i).getRol().equals(user))){
+                Normal pantalla = new Normal();
+                pantalla.setLocationRelativeTo(null);
+                pantalla.setVisible(true);
+                error = false;
+                break;
+            }
+            else if((listaUsuarios.get(i).getUsuario().equals(usuario))  && (listaUsuarios.get(i).getContrasenia().equals(contra))&& (listaUsuarios.get(i).getRol().equals(admin))){
+                Administrador adminPantalla = new Administrador();
+                adminPantalla.setLocationRelativeTo(null);
+                adminPantalla.setVisible(true);
+                error = false;
+                break;
+            }
+        }
+        if (error == true){
+            mensaje("Usuario inexistente","error","Porfavor registrarse");
+        }
+        else if(error == false){
+            mensaje("Información","info","Acceso concedido");
+        }
+    }//GEN-LAST:event_btnEntrarActionPerformed
+    //metodo mensaje
+    public void mensaje(String titulo, String tipoMensj, String mensaje){
+        
+        if(tipoMensj.equals("error")){
+            JOptionPane panel = new JOptionPane(mensaje);
+            panel.setMessageType(JOptionPane.ERROR_MESSAGE);
+            JDialog dialog = panel.createDialog(titulo);
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+        }
+        else if(tipoMensj.equals("info")){
+            JOptionPane info = new JOptionPane(mensaje);
+            info.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+            JDialog dialog = info.createDialog(titulo);
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnRegistrarte;
