@@ -154,10 +154,11 @@ public class Administrador extends javax.swing.JFrame {
             if(us.getId() == (Integer)(tblTablaAdmin.getValueAt(tblTablaAdmin.getSelectedRow(), 0))){
                control.eliminarUsuario(us.getId());
                mensaje("Eliminado","info","Usuario eliminado");
+               
                break;
             }
         }
-         
+        control.traerDatosUs();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     //metodos

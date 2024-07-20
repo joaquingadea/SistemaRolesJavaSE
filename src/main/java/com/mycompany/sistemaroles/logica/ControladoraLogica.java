@@ -12,7 +12,7 @@ public class ControladoraLogica {
     }
 
     public void eliminarUsuario(int id) {
-        //funcionalidad eliminar usuario
+        control.eliminarUsuario(id);
     }
    
 }
