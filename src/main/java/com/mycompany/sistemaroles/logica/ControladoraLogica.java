@@ -10,5 +10,9 @@ public class ControladoraLogica {
     public void cargarDatosUs(Usuario usu) {
         control.cargarDatosUs(usu);
     }
+
+    public void eliminarUsuario(int id) {
+        //funcionalidad eliminar usuario
+    }
    
 }
