@@ -142,7 +142,6 @@ public class Login extends javax.swing.JFrame {
         Registrarte reg = new Registrarte();
         reg.setVisible(true);
         reg.setLocationRelativeTo(null);
-        
     }//GEN-LAST:event_btnRegistrarteActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed

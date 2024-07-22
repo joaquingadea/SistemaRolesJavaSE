@@ -50,6 +50,11 @@ public class Administrador extends javax.swing.JFrame {
         jLabel1.setText("Administrador de los usuarios:");
 
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -121,29 +126,32 @@ public class Administrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        DefaultTableModel carTabla = new DefaultTableModel(){
+        cargarTabla();
+    } 
+    private void cargarTabla(){
+        DefaultTableModel modeloTabla = new DefaultTableModel(){
             @Override
-            public boolean isCellEditable(int row, int column){
-                return false;
-            }
-        };
+                public boolean isCellEditable(int row, int column){
+                    return false;
+                }
+            };
         List<Usuario> listaUsuarios = null;
         listaUsuarios = new ArrayList();
         listaUsuarios = control.traerDatosUs();
         String titulos[] = {"Id","Usuario","Nombre","Apellido","Profesion","Departamento"};
-        carTabla.setColumnIdentifiers(titulos);
-        if(listaUsuarios != null){
-            for(Usuario us : listaUsuarios){
-                Object usuariosTabla[] = {us.getId(),us.getUsuario(),us.getNombre(),us.getApellido(),us.getProfesion(),us.getDepartamento()}; 
-                if(us.getRol().equals("Administrador")||us.getRol().equals("usuario")){
-                    carTabla.addRow(usuariosTabla);
-                }
-            }
-        }
-        else{
-            mensaje("Tabla vacia","error","La tabla no tiene datos cargados");
-        }
-        tblTablaAdmin.setModel(carTabla);
+        modeloTabla.setColumnIdentifiers(titulos);
+           if(listaUsuarios != null){
+               for(Usuario us : listaUsuarios){
+                   Object usuariosTabla[] = {us.getId(),us.getUsuario(),us.getNombre(),us.getApellido(),us.getProfesion(),us.getDepartamento()}; 
+                   if(us.getRol().equals("Administrador")||us.getRol().equals("usuario")){
+                       modeloTabla.addRow(usuariosTabla);
+                   }
+               }
+           }
+           else{
+               mensaje("Tabla vacia","error","La tabla no tiene datos cargados");
+           }
+           tblTablaAdmin.setModel(modeloTabla);  
     }//GEN-LAST:event_formWindowOpened
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -153,15 +161,19 @@ public class Administrador extends javax.swing.JFrame {
             //int numId = (Integer) us.getId();
             if(us.getId() == (Integer)(tblTablaAdmin.getValueAt(tblTablaAdmin.getSelectedRow(), 0))){
                control.eliminarUsuario(us.getId());
-               mensaje("Eliminado","info","Usuario eliminado");
-               
+               mensaje("Eliminado","info","Usuario eliminado correctamente");
                break;
             }
         }
-        control.traerDatosUs();
+        cargarTabla();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        
+    }//GEN-LAST:event_btnEditarActionPerformed
+
     //metodos
+    
     public void mensaje(String titulo,String tipoMnj,String mensaje){
         if(tipoMnj.equals("info")){
             JOptionPane cartel = new JOptionPane();
