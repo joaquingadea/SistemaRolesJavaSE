@@ -1,4 +1,4 @@
-# SistemaRolesJavaSE
+# SistemaAdministracionJavaSE
 Es una aplicacion de escritorio que simula ser un sistema de roles y permisos, básicamente es un ejercicio práctico que a través de un login te permite acceder a cierta información dependiendo del del rol que tengas. 
 Este ejercicio lo hice implementando JavaSE, MAVEN, POO, SWING (para la interfaz gráfica) y bases de datos relacionales utilizando MySQL para guardar los usuarios creados.
 Se puede apreciar un CRUD completo ya que con el rol de administrador tenés la capacidad (desde la interfaz gráfica) de editar y eliminar usuarios completos, y los usuarios normales tienen la capacidad de ver la información de los que tengan su mismo rol(exceptuando la contraseña), por lo tanto en la parte del administrador se puede encontrar la eliminación, la edición y la lectura de la información guardada en la base de datos. En cuanto al alta de información a la base de datos, esta se puede encontrar a la hora de registrarse uno mismo en el sistema, por lo tanto se obtiene un CRUD completo con el create, read, update y delete necesarios para realizarlo.
