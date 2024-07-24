@@ -6,9 +6,10 @@ import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
-    ControladoraLogica control = new ControladoraLogica(); 
+ControladoraLogica control; 
     public Login() {
         initComponents();
+        control = new ControladoraLogica();
     }
 
     @SuppressWarnings("unchecked")
@@ -139,7 +140,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarteActionPerformed
-        Registrarte reg = new Registrarte();
+        Registrarte reg = new Registrarte(control);
         reg.setVisible(true);
         reg.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnRegistrarteActionPerformed
@@ -155,14 +156,14 @@ public class Login extends javax.swing.JFrame {
         
         for(int i = 0; i < listaUsuarios.size();i++){
             if((listaUsuarios.get(i).getUsuario().equals(usuario))  && (listaUsuarios.get(i).getContrasenia().equals(contra))&& (listaUsuarios.get(i).getRol().equals(user))){
-                Normal pantalla = new Normal();
+                Normal pantalla = new Normal(control);
                 pantalla.setLocationRelativeTo(null);
                 pantalla.setVisible(true);
                 error = false;
                 break;
             }
             else if((listaUsuarios.get(i).getUsuario().equals(usuario))  && (listaUsuarios.get(i).getContrasenia().equals(contra))&& (listaUsuarios.get(i).getRol().equals(admin))){
-                Administrador adminPantalla = new Administrador();
+                Administrador adminPantalla = new Administrador(control);
                 adminPantalla.setLocationRelativeTo(null);
                 adminPantalla.setVisible(true);
                 error = false;

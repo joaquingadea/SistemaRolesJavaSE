@@ -9,9 +9,11 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Administrador extends javax.swing.JFrame {
-    ControladoraLogica control = new ControladoraLogica();
-    public Administrador() {
+    //ControladoraLogica control = new ControladoraLogica();
+    ControladoraLogica control;
+    public Administrador(ControladoraLogica control) {
         initComponents();
+        this.control = control;
     }
 
     @SuppressWarnings("unchecked")
@@ -170,6 +172,21 @@ public class Administrador extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         
+        if(tblTablaAdmin.getRowCount()>0){
+            if(tblTablaAdmin.getSelectedRow() != -1){
+                int id_us = Integer.parseInt(String.valueOf(tblTablaAdmin.getValueAt(tblTablaAdmin.getSelectedRow(),0)));
+                
+                EdicionUsuarios editUsuario = new EdicionUsuarios(id_us,control);
+                editUsuario.setLocationRelativeTo(null);
+                editUsuario.setVisible(true);
+            }
+            else{
+                mensaje("Seleccione un usuario","error","No se seleccionó ningun registro");
+            }
+        }
+        else{
+            mensaje("Tabla vacía","error","La tabla no tiene ningun usuario para editar");
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     //metodos

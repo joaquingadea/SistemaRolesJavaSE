@@ -7,10 +7,11 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 public class Registrarte extends javax.swing.JFrame {
-    ControladoraLogica control = new ControladoraLogica();
-   
-    public Registrarte() {
+    //ControladoraLogica control = new ControladoraLogica();
+    ControladoraLogica control;
+    public Registrarte(ControladoraLogica control) {
         initComponents();
+        this.control = control;
     }
     
     @SuppressWarnings("unchecked")

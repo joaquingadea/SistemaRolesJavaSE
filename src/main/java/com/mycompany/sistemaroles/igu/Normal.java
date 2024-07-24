@@ -10,9 +10,11 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Normal extends javax.swing.JFrame {
-    ControladoraLogica control = new ControladoraLogica();
-    public Normal() {
+    //ControladoraLogica control = new ControladoraLogica();+
+    ControladoraLogica control;
+    public Normal(ControladoraLogica control) {
         initComponents();
+        this.control = control;
     }
 
     @SuppressWarnings("unchecked")

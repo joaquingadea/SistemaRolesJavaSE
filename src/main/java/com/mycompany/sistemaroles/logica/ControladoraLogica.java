@@ -14,5 +14,13 @@ public class ControladoraLogica {
     public void eliminarUsuario(int id) {
         control.eliminarUsuario(id);
     }
+
+    public Usuario traerUsuario(int id) {
+        return control.traerUsuario(id);
+    }
+
+    public void editarUsuario(Usuario usu) {
+        control.editarUsuario(usu);
+    }
    
 }
